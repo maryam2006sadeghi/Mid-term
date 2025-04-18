@@ -25,8 +25,17 @@ public class User {
     }
 
     public void follow(User user){
+        if(followingList.contains(user))
+            throw new InvalidOperationException("This user is already exist in following list");
+        else{
             followingList.add(user);
+        }
+
+        if(followerList.contains(this))
+            throw new InvalidOperationException("This user is already exist in follower list");
+        else {
             followerList.add(this);
+        }
     }
 
     public void createPlaylist(String Title){
